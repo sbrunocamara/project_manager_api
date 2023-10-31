@@ -19,6 +19,7 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import PdfMakersController from 'App/Controllers/Http/PdfMakersController'
 
 Route.post('login', async ({ auth, request, response }) => {
   const user = request.input('user')
@@ -62,6 +63,8 @@ Route.group(() => {
   Route.get('/usuario/get', 'UsuariosController.get')
   Route.get('/projeto/get', 'ProjetosController.get')
   Route.get('/requisito/get', 'RequisitosController.get')
+
+  Route.get('/relatorio/pdf/:id','PdfMakersController.generate')
 
 
 
