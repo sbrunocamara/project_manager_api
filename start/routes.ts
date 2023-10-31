@@ -21,14 +21,14 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('login', async ({ auth, request, response }) => {
-  const user = request.input('usuario')
+  const user = request.input('user')
   const password = request.input('password')
 
-  // console.log(user)
-  // console.log(password)
+  console.log(user)
+  console.log(password)
 
   try {
-    const token = await auth.use('api').attempt(user, password)
+    const token = await auth.use('api').attempt(user,password)
     return token
   } catch(_error) {
     console.log(_error)

@@ -21,8 +21,6 @@ export default class UsuariosController {
   public async add({ request, response }: HttpContextContract) {
     const body = request.body()
 
-    body.senha = await Encryption.encrypt(body.senha)
-
     const usuario = await Usuario.create(body)
 
     if (usuario) {
@@ -49,7 +47,6 @@ export default class UsuariosController {
     const usuario = await Usuario.findOrFail(id)
 
     if (usuario) {
-     body.senha = await Hash.make(body.senha)
       usuario.merge(body)
       await usuario.save()
 

@@ -6,15 +6,15 @@ export default class extends BaseSeeder {
    
     await Usuario.createMany([
       {
-        nome: 'Administrador',
-        usuario: 'admin',
-        senha: '7c4a8d09ca3762af61e59520943dc26494f8941b',
+        name: 'Administrador',
+        user: 'admin',
+        password: '123456',
         privilegio: 1,
       },
       {
-        nome: 'Usuário',
-        usuario: 'user',
-        senha: '7c4a8d09ca3762af61e59520943dc26494f8941b',
+        name: 'Usuário',
+        user: 'user',
+        password: '123456',
         privilegio: 2,
       },
     ])
