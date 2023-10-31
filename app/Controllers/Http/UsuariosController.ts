@@ -1,13 +1,12 @@
-import Hash from '@ioc:Adonis/Core/Hash'
+
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Usuario from 'App/Models/Usuario'
-import Encryption from '@ioc:Adonis/Core/Encryption'
 
 export default class UsuariosController {
   public async get({response }: HttpContextContract) {
     const usuarios = await Usuario.query().select(
-      'nome',
-      'usuario',
+      'name',
+      'user',
       'privilegio',
       'created_at',
       'updated_at'

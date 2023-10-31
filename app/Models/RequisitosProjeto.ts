@@ -16,7 +16,7 @@ export default class RequisitosProjeto extends BaseModel {
   public usuario:number
 
   @column()
-  public projeto_id:number
+  public projeto:number
 
   @column()
   public codigo:string
