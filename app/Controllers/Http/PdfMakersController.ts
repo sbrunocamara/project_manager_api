@@ -24,7 +24,7 @@ export default class PdfMakersController {
     .query()
     .select()
     .where('projeto',id)
-    .first()
+    
 
     let content = {
 
@@ -33,10 +33,8 @@ export default class PdfMakersController {
     }
     
 
-    console.log(content.requisitos?.descricao)
+    let filename = "relatorio_"+id+'_'+moment().format('M_D_YYYY')+".pdf"
 
-    // let filename = "relatorio_"+id+'_'+moment().format('M_D_YYYY')+".pdf"
-    let filename = "relatorio.pdf"
 
     let pdf = this.pdfWriter(filename,content)
 
@@ -56,12 +54,37 @@ export default class PdfMakersController {
     const pdfBuffer = await new Promise((resolve) => {
       const doc = new PDFDocument()
 
+      doc.fontSize(18);
+      doc.text('Projeto', 300, 30)
+      doc.fontSize(12);
+      doc.text('ID:  '+content.projeto.id, 100, 68)
+      doc.text('Data:  '+content.projeto.data.day+'/'+content.projeto.data.month+'/'+content.projeto.data.year, 100, 86)
+      doc.text('Descricão:  '+content.projeto.descricao, 100, 104)
+   )
 
-      doc.text(content, 100, 50)
-      doc.text('teste', 100, 68)
-      doc.text('teste', 100, 86)
-      doc.text('teste', 100, 104)
-      doc.text('teste', 100, 122)
+      let line = 144
+      doc.fontSize(18);
+      doc.text('Requisitos', 290, line)
+      line = line + 18
+      doc.fontSize(12);
+      content.requisitos.forEach(element => {
+
+        line = line + 18
+        
+        doc.text('Código:  '+element.codigo, 100, line)
+        line = line + 18
+        doc.text('Data:  '+element.data.day+'/'+element.data.month+'/'+element.data.year, 100, line)
+        line = line + 18
+        doc.text('Descricão:  '+element.descricao, 100, line)
+        line = line + 18
+        doc.text('--------------------------------------------------------------------------------------------------------------', 100, line)
+
+      
+      }); 
+
+        
+
+    
 
       doc.end()
 
