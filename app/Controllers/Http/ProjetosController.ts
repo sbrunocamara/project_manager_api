@@ -1,26 +1,42 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Projeto from 'App/Models/Projeto'
 import Usuario from 'App/Models/Usuario'
+import RequisitosProjeto from 'App/Models/RequisitosProjeto'
 
 export default class ProjetosController {
 
-    public async get({response }: HttpContextContract) {
-
+    public async get({response,request }: HttpContextContract) {
+ 
         const projetos = await Projeto.query().select(
             'projetos.id',
-            'data',
-            'descricao',
-            'usuario',
-            'usuarios.name as usuario_nome',
-            'usuarios.user as usuario_user',
+            'projetos.data',
+            'projetos.descricao',
+            'projetos.usuario'
           )
-          .leftJoin('usuarios', 'usuarios.id', 'projetos.usuario')
+          .preload('usuarioProjeto')
     
         response.status(200).send({
             data: projetos
           }) 
      
       }
+
+      public async getById({response,request }: HttpContextContract) {
+        const id = request.param('id')
+        const projetos = await Projeto.query().select(
+            'projetos.id',
+            'projetos.data',
+            'projetos.descricao',
+            'projetos.usuario'
+          )
+          .preload('usuarioProjeto').where('projetos.id',id)
+    
+        response.status(200).send({
+            data: projetos
+          }) 
+     
+      }
+
 
       public async add({ request, response }: HttpContextContract) {
         const body = request.body()
@@ -77,6 +93,8 @@ export default class ProjetosController {
         const id = request.param('id')
     
         const projeto = await Projeto.findOrFail(id)
+
+        const requisitosProjeto = await RequisitosProjeto.query().where('projeto',id).delete()
     
         if (projeto) {
         await projeto.delete()

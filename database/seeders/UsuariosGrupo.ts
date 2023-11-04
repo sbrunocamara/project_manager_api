@@ -9,7 +9,7 @@ export default class extends BaseSeeder {
         descricao: 'Administrador',
       },
       {
-        descricao: 'Usuário',
+        descricao: 'Padrão',
       },
     ])
   }

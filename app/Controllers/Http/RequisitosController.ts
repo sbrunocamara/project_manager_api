@@ -1,21 +1,20 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Projeto from 'App/Models/Projeto'
 import Usuario from 'App/Models/Usuario'
 import Requisito from 'App/Models/RequisitosProjeto'
 
 export default class RequisitosController {
 
-    public async get({response }: HttpContextContract) {
-
+    public async get({response,request }: HttpContextContract) {
+      const id = request.param('id')
         const requisito = await Requisito.query().select(
-            'projetos.id',
-            'data',
-            'descricao',
-            'usuario',
-            'usuarios.name as usuario_nome',
-            'usuarios.user as usuario_user',
-          )
-          .leftJoin('usuarios', 'usuarios.id', 'projetos.usuario')
+            'requisitos_projetos.id',
+            'requisitos_projetos.data',
+            'requisitos_projetos.descricao',
+            'requisitos_projetos.usuario',
+            'requisitos_projetos.projeto',
+            'requisitos_projetos.codigo'
+          ).preload('usuarioRequisito').where('requisitos_projetos.projeto',id)
+        
     
         response.status(200).send({
             data: requisito

@@ -1,8 +1,21 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
 import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import {
+  hasOne,
+  HasOne
+} from '@ioc:Adonis/Lucid/Orm'
+import GruposUsuario from './GruposUsuario'
 
 export default class Usuario extends BaseModel {
+
+  @hasOne(() => GruposUsuario,{
+    foreignKey: 'id',
+    localKey: 'privilegio'
+  })
+
+  public grupo: HasOne<typeof GruposUsuario>
+
   @column({ isPrimary: true })
   public id: number
 

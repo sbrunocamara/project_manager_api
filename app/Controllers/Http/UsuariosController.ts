@@ -5,12 +5,28 @@ import Usuario from 'App/Models/Usuario'
 export default class UsuariosController {
   public async get({response }: HttpContextContract) {
     const usuarios = await Usuario.query().select(
-      'name',
-      'user',
-      'privilegio',
-      'created_at',
-      'updated_at'
-    )
+      'usuarios.name',
+      'usuarios.id',
+      'usuarios.user',
+      'usuarios.privilegio',
+      'usuarios.created_at',
+      'usuarios.updated_at'
+    ).preload('grupo')
+
+    response.status(200).send({
+        data: usuarios
+      }) 
+ 
+  }
+  public async getById({request,response }: HttpContextContract) {
+    const id = request.param('id')
+    const usuarios = await Usuario.query().select(
+      'usuarios.name',
+      'usuarios.user',
+      'usuarios.privilegio',
+      'usuarios.created_at',
+      'usuarios.updated_at'
+    ).preload('grupo').where('id',id)
 
     response.status(200).send({
         data: usuarios
