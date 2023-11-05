@@ -65,6 +65,7 @@ Route.group(() => {
   Route.get('/projeto/get', 'ProjetosController.get')
   Route.get('/projeto/get/:id', 'ProjetosController.getById')
   Route.get('/requisito/get/:id', 'RequisitosController.get')
+  Route.get('/requisito/get/requisito/:id', 'RequisitosController.getById')
 
   Route.get('/relatorio/pdf/:id','PdfMakersController.generate')
 

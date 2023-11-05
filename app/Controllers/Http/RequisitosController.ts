@@ -21,6 +21,22 @@ export default class RequisitosController {
           }) 
      
       }
+      public async getById({response,request }: HttpContextContract) {
+        const id = request.param('id')
+          const requisito = await Requisito.query().select(
+              'requisitos_projetos.id',
+              'requisitos_projetos.data',
+              'requisitos_projetos.descricao',
+              'requisitos_projetos.usuario',
+              'requisitos_projetos.projeto',
+              'requisitos_projetos.codigo'
+            ).preload('usuarioRequisito').where('requisitos_projetos.id',id)
+          
+          response.status(200).send({
+              data: requisito
+            }) 
+       
+        }
 
       public async add({ request, response }: HttpContextContract) {
         const body = request.body()

@@ -6,6 +6,7 @@ import moment from 'moment'
 import Usuario from 'App/Models/Usuario'
 import Projeto from 'App/Models/Projeto'
 import Requisito from 'App/Models/RequisitosProjeto'
+import { Buffer } from 'buffer'
 
 
 export default class PdfMakersController {
@@ -60,7 +61,7 @@ export default class PdfMakersController {
       doc.text('ID:  '+content.projeto.id, 100, 68)
       doc.text('Data:  '+content.projeto.data.day+'/'+content.projeto.data.month+'/'+content.projeto.data.year, 100, 86)
       doc.text('Descricão:  '+content.projeto.descricao, 100, 104)
-   )
+   
 
       let line = 144
       doc.fontSize(18);
