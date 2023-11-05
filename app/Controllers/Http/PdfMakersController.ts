@@ -43,6 +43,7 @@ export default class PdfMakersController {
     response.status(200).send({
      "base64": await pdf,
      "URL": Env.get('URL_FILES')+filename,
+     "filename": filename,
     })
 
 
