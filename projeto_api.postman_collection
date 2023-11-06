@@ -1,0 +1,626 @@
+{
+	"info": {
+		"_postman_id": "1e6753fc-0b04-4339-90af-8c7de6278634",
+		"name": "CRUD ADONIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22825575"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "New User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Teste\",\r\n    \"user\":\"teste\",\r\n    \"password\":\"aaa\",\r\n    \"privilegio\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/usuario/add",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"usuario",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\":\"user\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3333/api/usuario/get",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"usuario",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3333/api/usuario/get/2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"usuario",
+								"get",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Teste update4\",\r\n    \"user\":\"teste\",\r\n    \"password\":\"aaa\",\r\n    \"privilegio\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/usuario/update/4",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"usuario",
+								"update",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/usuario/delete/4",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"usuario",
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PROJETOS",
+			"item": [
+				{
+					"name": "Get Projetos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3333/api/projeto/get",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"projeto",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Projeto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\":\"Teste\",\r\n    \"usuario\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/projeto/add",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"projeto",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Projeto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\":\"Teste aaaaa\",\r\n    \"usuario\":\"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/projeto/update/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"projeto",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Projeto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/projeto/delete/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"projeto",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REQUISITOS",
+			"item": [
+				{
+					"name": "Get Requisitos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3333/api/requisito/get",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"requisito",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Requisitos ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3333/api/requisito/get/requisito/5",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"requisito",
+								"get",
+								"requisito",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Requisitos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projeto\": 2,\r\n    \"codigo\":\"RF01\",\r\n    \"descricao\":\"Teste\",\r\n    \"usuario\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/requisito/add",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"requisito",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Requisitos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projeto\": 2,\r\n    \"codigo\":\"\",\r\n    \"descricao\":\"Teste\",\r\n    \"usuario\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/requisito/update/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"requisito",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Requisitos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3333/api/requisito/delete/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"requisito",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PDF",
+			"item": [
+				{
+					"name": "PDF Generator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mw.DI-Cjy7airK2V_8ZssYwkQ9jDtJgrOCbhaWn4Hprjs_BJFyd9b3S00oQRxHY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3333/api/relatorio/pdf",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"relatorio",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
